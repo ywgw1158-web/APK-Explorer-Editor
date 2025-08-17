@@ -1,0 +1,90 @@
+--LocalScript di StarterGui
+
+
+local player = game.Players.LocalPlayer
+
+local character = player.Character or player.CharacterAdded:Wait()
+
+local humanoid = character:WaitForChild("Humanoid")
+
+-- GUI
+
+local screenGui = Instance.new("ScreenGui")
+
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+
+frame.Parent = screenGui
+
+frame.Size = UDim2.new(0, 200, 0, 150)
+
+frame.Position = UDim2.new(0.05, 0, 0.7, 0)
+
+frame.BackgroundColor3 = Color3.fromRGB(40,40,40)
+
+frame.Active = true
+
+frame.Draggable = true -- bisa dipindah di HP
+
+-- Tombol Speed x2
+
+local btnFast = Instance.new("TextButton")
+
+btnFast.Parent = frame
+
+btnFast.Size = UDim2.new(1, 0, 0.3, 0)
+
+btnFast.Position = UDim2.new(0, 0, 0, 0)
+
+btnFast.Text = "Speed x2"
+
+btnFast.BackgroundColor3 = Color3.fromRGB(0,170,255)
+
+-- Tombol Speed x4
+
+local btnFaster = Instance.new("TextButton")
+
+btnFaster.Parent = frame
+
+btnFaster.Size = UDim2.new(1, 0, 0.3, 0)
+
+btnFaster.Position = UDim2.new(0, 0, 0.35, 0)
+
+btnFaster.Text = "Speed x4"
+
+btnFaster.BackgroundColor3 = Color3.fromRGB(0,255,100)
+
+-- Tombol Normal
+
+local btnNormal = Instance.new("TextButton")
+
+btnNormal.Parent = frame
+
+btnNormal.Size = UDim2.new(1, 0, 0.3, 0)
+
+btnNormal.Position = UDim2.new(0, 0, 0.7, 0)
+
+btnNormal.Text = "Normal"
+
+btnNormal.BackgroundColor3 = Color3.fromRGB(255,80,80)
+
+-- Fungsi klik
+
+btnFast.MouseButton1Click:Connect(function()
+
+    humanoid.WalkSpeed = 32
+
+end)
+
+btnFaster.MouseButton1Click:Connect(function()
+
+    humanoid.WalkSpeed = 64
+
+end)
+
+btnNormal.MouseButton1Click:Connect(function()
+
+    humanoid.WalkSpeed = 16
+
+end)
